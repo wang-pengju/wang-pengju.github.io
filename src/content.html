@@ -1,0 +1,43 @@
+<li ng-repeat="item in list">
+	<div class="headPortrait">
+		<img ng-src="{{item.headPortrait}}" alt="">
+	</div><!-- /headPortrait -->
+	<div class="aContent">
+		<h1 class="aName">{{item.name}}</h1>
+		<p class="aTitle">{{item.title}}</p>
+		<div class="aTest">
+			<a href="" class="aHref" ng-if="item.srcTitle!==''">
+				<img ng-src="{{item.src}}" alt="">
+				<span>{{item.srcTitle}}</span>
+			</a>
+			<div class="imgList">
+				<img ng-repeat="imgLists in item.content.img" ng-src="{{imgLists}}" ng-class="{'img-1':item.content.img.length===1,'img-2':item.content.img.length===2||item.content.img.length===4,'img-3':item.content.img.length===3||item.content.img.length>4}">
+			</div><!-- /imgList -->
+			<p class="aDynamic">
+				<span ng-click="myEvent($index)">
+					<i class="iconfont icon-state-thumbs-up" ng-class="{'loved':item.hasLoveClicked}"></i>
+					<i>{{item.loveCount}}</i>
+				</span>
+				<span>
+					<i class="iconfont icon-xiaoxi"></i>
+					<i>评论</i>
+				</span>
+				<span ng-if="user.name===item.name">
+					<i class="iconfont icon-state-delete"></i>
+					<i>删除</i>
+				</span>
+			</p>
+		</div><!-- /aTest -->
+		<div class="aComment">
+			<span class="aTime">{{item.time|formatDate}}</span>
+			<p ng-repeat="comment in item.comments" ng-show="item.hasClicked" class="commentTest">
+				<span class="aPerson">{{comment.name}}:</span>
+				<span class="commentContent">{{comment.comment}}</span>
+			</p>
+		</div><!-- /aComment -->
+		<div class="retractOrUnfold">
+			<span class="retract" ng-click="retractOrUnfold($index)">{{item.retractContent}}</span>
+			<span class="iconfont icon-down retractAnimate"></span>
+		</div><!-- /retractOrUnfold -->
+	</div><!-- /aContent -->
+</li>
