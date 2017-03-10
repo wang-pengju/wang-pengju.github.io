@@ -235,8 +235,8 @@ article li .aHref span {
   margin-top: 0.16rem;
 }
 .imgList .img-3:nth-child(3n+2) {
-  margin-left: 0.08rem;
-  margin-right: 0.08rem;
+  margin-left: 0.16rem;
+  margin-right: 0.16rem;
 }
 .aComment {
   margin-top: -0.48rem;
